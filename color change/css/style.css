@@ -1,0 +1,13 @@
+.colors {
+  margin: 60px auto;
+  width: 40%;
+}
+
+h1, label {
+  font-family: 'Arvo', serif;
+  color: white;
+}
+
+select {
+  outline: none;
+}

@@ -1,0 +1,57 @@
+var App = React.createClass({
+ 
+  getInitialState: function() {
+    return {
+      bgColor: "#FF9218"
+    };
+  },
+  handleColorChange: function (color) {
+    this.setState({ bgColor: color });
+  },
+  updateBackgroundColor: function () {
+    var body = document.querySelector('body')
+    body.style.background = this.state.bgColor
+  },
+  componentDidMount: function () { 
+    this.updateBackgroundColor()
+  },
+  componentDidUpdate: function () { 
+    this.updateBackgroundColor()
+  },
+  render: function() {
+    return (
+      <div className="colors">
+        <h1>Hello, World!</h1>
+        <label>What color?
+          <ColorPicker value={this.state.bgColor}       onColorChange={this.handleColorChange}/>
+        </label>
+      </div>
+    )
+  }
+});
+var ColorPicker = React.createClass({
+  propTypes: {
+    value: React.PropTypes.string.isRequired,
+    onColorChange: React.PropTypes.func
+  },
+  handleChange: function(e) {
+    e.preventDefault();
+    var color = e.target.value
+    
+    if (this.props.onColorChange)
+      this.props.onColorChange(color);
+  },
+  render: function() {
+    return (
+      <select value={this.props.value} onChange={this.handleChange}>
+        <option value="orange">orange</option>
+        <option value="blue">blue</option>
+        <option value="black">black</option>
+        <option value="purple">purple</option>
+        <option value="red">red</option>
+      </select>
+    )
+  }
+});
+
+React.render(<App/>, document.querySelector('#main'));

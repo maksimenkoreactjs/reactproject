@@ -1,0 +1,3 @@
+Need server(host) to start.
+It is such problem without server "XMLHttpRequest cannot load file:///D:/git/react%20counter/app.jsx. Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https."
+Or you can start app using chrome in the mode of downloading files from the local computer
